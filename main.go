@@ -327,17 +327,17 @@ type SecretGenerator struct {
 func getSecretGenerators(c *controller) []SecretGenerator {
 	secretGenerators := make([]SecretGenerator, 0)
 
-	secretGenerators = append(secretGenerators, SecretGenerator{
-		TokenGenFxn: c.getGCRAuthorizationKey,
-		IsJSONCfg:   false,
-		SecretName:  *argGCRSecretName,
-	})
+	// secretGenerators = append(secretGenerators, SecretGenerator{
+	// 	TokenGenFxn: c.getGCRAuthorizationKey,
+	// 	IsJSONCfg:   false,
+	// 	SecretName:  *argGCRSecretName,
+	// })
 
-	secretGenerators = append(secretGenerators, SecretGenerator{
-		TokenGenFxn: c.getECRAuthorizationKey,
-		IsJSONCfg:   true,
-		SecretName:  *argAWSSecretName,
-	})
+	// secretGenerators = append(secretGenerators, SecretGenerator{
+	// 	TokenGenFxn: c.getECRAuthorizationKey,
+	// 	IsJSONCfg:   true,
+	// 	SecretName:  *argAWSSecretName,
+	// })
 
 	secretGenerators = append(secretGenerators, SecretGenerator{
 		TokenGenFxn: c.getDPRToken,
@@ -345,11 +345,11 @@ func getSecretGenerators(c *controller) []SecretGenerator {
 		SecretName:  *argDPRSecretName,
 	})
 
-	secretGenerators = append(secretGenerators, SecretGenerator{
-		TokenGenFxn: c.getACRToken,
-		IsJSONCfg:   true,
-		SecretName:  *argACRSecretName,
-	})
+	// secretGenerators = append(secretGenerators, SecretGenerator{
+	// 	TokenGenFxn: c.getACRToken,
+	// 	IsJSONCfg:   true,
+	// 	SecretName:  *argACRSecretName,
+	// })
 
 	return secretGenerators
 }
